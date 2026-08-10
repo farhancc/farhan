@@ -1,19 +1,24 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 export const BootScreen: React.FC<{ onStart?: () => void }> = ({ onStart }) => {
-  const [started, setStarted] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (onStart) onStart();
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, [onStart]);
 
-  const handleStart = () => {
-    if (started) return;
-    setStarted(true);
-    if (onStart) onStart();
+  const handleMouseMove = () => {
+    if (typeof window !== 'undefined' && (window as any).playStartupSound) {
+      (window as any).playStartupSound();
+    }
   };
 
   return (
     <div 
-      onMouseMove={handleStart}
+      onMouseMove={handleMouseMove}
       className="fixed inset-0 z-[10000] bg-black flex flex-col items-center justify-center select-none"
     >
       <div className="flex flex-col items-center mb-16 scale-125">
