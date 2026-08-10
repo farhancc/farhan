@@ -1,18 +1,22 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
 export const BootScreen: React.FC<{ onStart?: () => void }> = ({ onStart }) => {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (onStart) onStart();
-    }, 2500);
-    return () => clearTimeout(timer);
-  }, [onStart]);
+  const [started, setStarted] = useState(false);
+
+  const handleStart = () => {
+    if (started) return;
+    setStarted(true);
+    if (onStart) onStart();
+  };
 
   return (
-    <div className="fixed inset-0 z-[10000] bg-black flex flex-col items-center justify-center select-none">
-      <div className="flex flex-col items-center mb-16 scale-125">
+    <div 
+      onClick={handleStart}
+      className="fixed inset-0 z-[10000] bg-black flex flex-col items-center justify-center select-none cursor-pointer"
+    >
+      <div className="flex flex-col items-center mb-12 scale-125">
         <div className="flex mb-3">
            <svg width="72" height="72" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
              <path d="M10 20C24 11 38 19 42 17V40C38 42 24 34 10 43V20Z" fill="url(#boot-red)"/>
@@ -50,12 +54,18 @@ export const BootScreen: React.FC<{ onStart?: () => void }> = ({ onStart }) => {
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600 to-transparent mt-2" />
       </div>
 
-      <div className="w-48 h-4 border-2 border-gray-600 rounded-sm p-[2px] relative overflow-hidden bg-black">
+      {/* Loading Bar Container */}
+      <div className="w-48 h-4 border-2 border-gray-600 rounded-sm p-[2px] relative overflow-hidden bg-black mb-8">
         <div className="flex space-x-1 animate-xp-loading h-full">
            <div className="w-3 h-full bg-gradient-to-b from-[#245EDC] via-[#3f8cf3] to-[#245EDC] rounded-sm shadow-[0_0_5px_#3f8cf3]" />
            <div className="w-3 h-full bg-gradient-to-b from-[#245EDC] via-[#3f8cf3] to-[#245EDC] rounded-sm shadow-[0_0_5px_#3f8cf3]" />
            <div className="w-3 h-full bg-gradient-to-b from-[#245EDC] via-[#3f8cf3] to-[#245EDC] rounded-sm shadow-[0_0_5px_#3f8cf3]" />
         </div>
+      </div>
+
+      <div className="flex items-center space-x-2 px-5 py-2 rounded-full bg-gradient-to-r from-[#003399] to-[#0055dd] border border-blue-400 text-white text-xs font-sans animate-pulse shadow-lg">
+        <span className="text-sm">⏻</span>
+        <span className="font-semibold tracking-wide">Click anywhere to power on Windows XP</span>
       </div>
 
       <div className="absolute bottom-10 text-white/40 text-[10px] font-sans italic">

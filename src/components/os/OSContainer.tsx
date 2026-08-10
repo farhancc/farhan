@@ -71,16 +71,22 @@ export const OSContainer = () => {
   useEffect(() => {
     (window as any).playStartupSound = () => playStartupChime(true);
 
-    // Play startup sound immediately on startup
     playStartupChime();
 
-    const timer = setTimeout(() => {
-      setBooting(false);
+    const handleUserInteraction = () => {
       playStartupChime();
-    }, 3500);
+    };
+
+    window.addEventListener('click', handleUserInteraction);
+    window.addEventListener('pointerdown', handleUserInteraction);
+    window.addEventListener('keydown', handleUserInteraction);
+    window.addEventListener('touchstart', handleUserInteraction);
 
     return () => {
-      clearTimeout(timer);
+      window.removeEventListener('click', handleUserInteraction);
+      window.removeEventListener('pointerdown', handleUserInteraction);
+      window.removeEventListener('keydown', handleUserInteraction);
+      window.removeEventListener('touchstart', handleUserInteraction);
     };
   }, [playStartupChime]);
 
