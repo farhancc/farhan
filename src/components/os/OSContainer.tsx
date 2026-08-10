@@ -24,7 +24,7 @@ export const OSContainer = () => {
     if (soundPlayedRef.current && !force) return;
 
     try {
-      const audio = new Audio('/startup.mp3');
+      const audio = new Audio('/windows-xp-startup.mp3');
       audio.volume = 1.0;
       const p = audio.play();
       
