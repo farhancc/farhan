@@ -256,7 +256,7 @@ export const fileSystem: Record<string, FileItem> = {
   // ── Projects — FLAT (no nested folders) ──────────────────────────────────────
   projects: {
     id: 'projects', name: 'Projects', type: 'folder', icon: icons.folder,
-    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'petscolony-live', 'petscolony-github', 'nikahroots-live', 'nikahroots-github'],
+    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'petscolony-live', 'petscolony-github', 'nikahroots-live', 'nikahroots-github', 'lms-live', 'lms-github'],
   },
   'spa-erp-live': {
     id: 'spa-erp-live', name: 'Careva Spa ERP — Live.lnk', type: 'project',
@@ -289,6 +289,14 @@ export const fileSystem: Record<string, FileItem> = {
   'nikahroots-github': {
     id: 'nikahroots-github', name: 'NikahRoots Matchmaking — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/MatchMaking', openBehavior: 'external', icon: icons.github,
+  },
+  'lms-live': {
+    id: 'lms-live', name: 'LMS App — Live.lnk', type: 'project',
+    content: 'https://lms-app-phi.vercel.app/', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'lms-github': {
+    id: 'lms-github', name: 'LMS App — GitHub.lnk', type: 'shortcut',
+    content: 'https://github.com/farhancc/LMS-app', openBehavior: 'external', icon: icons.github,
   },
 
   // ── Text Files ───────────────────────────────────────────────────────────────
