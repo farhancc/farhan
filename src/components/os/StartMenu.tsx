@@ -16,11 +16,11 @@ export const StartMenu = () => {
     >
       {/* Header */}
       <div className="h-[55px] bg-gradient-to-b from-[#1858E5] via-[#488BF2] to-[#1858E5] flex items-center px-2 relative rounded-t-sm border-b-2 border-orange-400">
-        <div className="w-[48px] h-[48px] absolute top-[-5px] left-2 bg-white rounded-md border-2 border-white overflow-hidden shadow-md flex items-center justify-center bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/Soccer_ball.svg')] bg-cover">
-           {/* Chess/Soccer ball avatar usually goes here */}
+        <div className="w-[48px] h-[48px] absolute top-[-5px] left-2 bg-white rounded-md border-2 border-white overflow-hidden shadow-md flex items-center justify-center">
+           <img src="/farhan.png" alt="Farhan CC" className="w-full h-full object-cover" />
         </div>
         <div className="ml-14 text-white font-bold text-lg drop-shadow-[1px_1px_2px_rgba(0,0,0,0.8)] tracking-wide">
-           Administrator
+           Farhan CC
         </div>
       </div>
 

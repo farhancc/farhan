@@ -51,7 +51,7 @@ export const MobilePortfolio = () => {
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-500"></div>
             <div className="relative w-28 h-28 bg-[#111] rounded-full overflow-hidden border-2 border-white/10 p-1 flex items-center justify-center">
-              <Code2 className="w-12 h-12 text-gray-400" />
+              <img src="/farhan.png" alt="Farhan CC" className="w-full h-full object-cover rounded-full" />
             </div>
           </div>
           
