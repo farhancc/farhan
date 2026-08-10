@@ -1,15 +1,44 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { getFolderContents, fileSystem } from '@/config/fileSystem';
 import { useOSStore } from '@/store/osStore';
+import { ArrowLeft } from 'lucide-react';
 
-export const Explorer: React.FC<{ folderId: string }> = ({ folderId }) => {
-  const contents = getFolderContents(folderId);
-  const folder = fileSystem[folderId];
+const findParentFolderId = (childId: string): string | null => {
+  for (const [key, item] of Object.entries(fileSystem)) {
+    if (item.children?.includes(childId)) {
+      return key;
+    }
+  }
+  return null;
+};
+
+export const Explorer: React.FC<{ folderId: string }> = ({ folderId: initialFolderId }) => {
+  const [currentFolderId, setCurrentFolderId] = useState(initialFolderId);
+  const [history, setHistory] = useState<string[]>([initialFolderId]);
+  
+  const contents = getFolderContents(currentFolderId);
+  const folder = fileSystem[currentFolderId];
   const { openWindow } = useOSStore();
 
-  const lastOpenTimeRef = React.useRef<Record<string, number>>({});
+  const lastOpenTimeRef = useRef<Record<string, number>>({});
+
+  const parentFolderId = findParentFolderId(currentFolderId);
+  const canGoBack = history.length > 1 || (parentFolderId !== null && parentFolderId !== currentFolderId);
+
+  const handleGoBack = () => {
+    if (history.length > 1) {
+      const newHistory = [...history];
+      newHistory.pop();
+      const prevFolderId = newHistory[newHistory.length - 1];
+      setHistory(newHistory);
+      setCurrentFolderId(prevFolderId);
+    } else if (parentFolderId && parentFolderId !== currentFolderId) {
+      setCurrentFolderId(parentFolderId);
+      setHistory([parentFolderId]);
+    }
+  };
 
   const handleDoubleClick = (fileId: string) => {
     const now = Date.now();
@@ -27,7 +56,9 @@ export const Explorer: React.FC<{ folderId: string }> = ({ folderId }) => {
     }
 
     if (file.type === 'folder') {
-      openWindow('explorer', file.name, { props: { folderId: file.id }, icon: file.icon });
+      // Navigate in-place within Explorer
+      setCurrentFolderId(file.id);
+      setHistory((prev) => [...prev, file.id]);
     } else if (file.name.endsWith('.txt')) {
       openWindow('notepad', file.name, { props: { content: file.content }, icon: file.icon });
     } else {
@@ -49,10 +80,21 @@ export const Explorer: React.FC<{ folderId: string }> = ({ folderId }) => {
       
       {/* Toolbar */}
       <div className="bg-[#ece9d8] border-b border-[#cfcdc0] flex items-center p-1 gap-1">
-        <button className="flex items-center gap-1 hover:bg-whiteactive:bg-gray-200 px-2 py-1 rounded shadow-[inset_1px_1px_rgba(255,255,255,0.7)] hover:shadow-[0_1px_2px_rgba(0,0,0,0.1),inset_1px_1px_rgba(255,255,255,0.7)]">
-          <div className="w-4 h-4 bg-gray-400 rounded-full flex items-center justify-centertext-white"><span className="text-[10px]">&lt;</span></div>
-          <span className="text-xs text-gray-700">Back</span>
+        <button 
+          onClick={handleGoBack}
+          disabled={!canGoBack}
+          className={`flex items-center gap-1.5 px-2 py-1 rounded transition-all ${
+            canGoBack 
+              ? 'hover:bg-white active:bg-gray-200 cursor-pointer shadow-[inset_1px_1px_rgba(255,255,255,0.7)] hover:shadow-[0_1px_2px_rgba(0,0,0,0.1)]' 
+              : 'opacity-40 cursor-not-allowed'
+          }`}
+        >
+          <div className={`w-5 h-5 rounded-full flex items-center justify-center text-white shadow-sm transition-colors ${canGoBack ? 'bg-[#429C46] hover:bg-[#4EB353]' : 'bg-gray-400'}`}>
+            <ArrowLeft className="w-3.5 h-3.5 stroke-[3]" />
+          </div>
+          <span className="text-xs font-bold text-gray-800">Back</span>
         </button>
+
         <div className="w-px h-5 bg-gray-400 mx-1"></div>
         <button className="flex items-center gap-1 hover:bg-white active:bg-gray-200 px-2 py-1 rounded">
           <span className="text-xs text-gray-700">Search</span>
@@ -66,7 +108,7 @@ export const Explorer: React.FC<{ folderId: string }> = ({ folderId }) => {
       <div className="bg-[#ece9d8] border-b border-[#cfcdc0] flex items-center p-1 px-2 space-x-2">
         <span className="text-xs text-gray-600">Address</span>
         <div className="flex-1 bg-white border border-[#7f9db9] px-2 py-0.5 text-xs flex items-center space-x-1 min-w-0">
-          {folder?.icon && <img src={folder.icon} className="w-3 h-3" />}
+          {folder?.icon && <img src={folder.icon} className="w-3.5 h-3.5" alt="folder" />}
           <span className="truncate">{(folder?.id === 'desktop' ? 'C:\\Documents and Settings\\User\\Desktop' : `C:\\${folder?.name}`)}</span>
         </div>
       </div>
