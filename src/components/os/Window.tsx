@@ -92,24 +92,57 @@ export const Window: React.FC<WindowProps> = ({ windowData, children }) => {
              {title}
           </span>
         </div>
-        <div className="flex space-x-[2px] pr-[2px]">
+        <div className="flex space-x-[3px] pr-[3px] items-center">
+          {/* Minimize */}
           <button 
-            className="w-[21px] h-[21px] bg-gradient-to-b from-[#fff] to-[#ccd9e8] text-black border border-white hover:border-black rounded-[3px] shadow-sm flex items-center justify-center cursor-pointer active:from-[#a5c2e0] active:to-[#ccd9e8]"
-            onClick={() => minimizeWindow(id)}
+            className="w-[21px] h-[21px] rounded-[3px] border border-white/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.3)] bg-gradient-to-b from-[#2E7CFA] via-[#0057EE] to-[#0039A6] hover:brightness-110 active:brightness-90 flex items-center justify-center cursor-pointer transition-all active:translate-y-[0.5px]"
+            onClick={(e) => {
+              e.stopPropagation();
+              minimizeWindow(id);
+            }}
+            title="Minimize"
           >
-            <Minus size={12} strokeWidth={3} className="mt-2" />
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+              <rect x="1" y="7" width="7" height="2" fill="white" />
+            </svg>
           </button>
+
+          {/* Maximize / Restore */}
           <button 
-            className="w-[21px] h-[21px] bg-gradient-to-b from-[#fff] to-[#ccd9e8] border border-white hover:border-black rounded-[3px] shadow-sm flex items-center justify-center cursor-pointer active:from-[#a5c2e0] active:to-[#ccd9e8]"
-            onClick={() => isMaximized ? restoreWindow(id) : maximizeWindow(id)}
+            className="w-[21px] h-[21px] rounded-[3px] border border-white/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.3)] bg-gradient-to-b from-[#2E7CFA] via-[#0057EE] to-[#0039A6] hover:brightness-110 active:brightness-90 flex items-center justify-center cursor-pointer transition-all active:translate-y-[0.5px]"
+            onClick={(e) => {
+              e.stopPropagation();
+              isMaximized ? restoreWindow(id) : maximizeWindow(id);
+            }}
+            title={isMaximized ? "Restore" : "Maximize"}
           >
-            {isMaximized ? <Copy size={11} strokeWidth={2.5}/> : <Square size={10} strokeWidth={3} className="mb-0.5 text-[#1D5ECA]" />}
+            {isMaximized ? (
+              <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                <path d="M2.5 0.5H8.5V6.5H6.5V2.5H2.5V0.5Z" stroke="white" strokeWidth="1" />
+                <path d="M2.5 0.5H8.5V2H2.5V0.5Z" fill="white" />
+                <rect x="0.5" y="2.5" width="6" height="6" fill="#0057EE" stroke="white" strokeWidth="1" />
+                <rect x="0.5" y="2.5" width="6" height="1.5" fill="white" />
+              </svg>
+            ) : (
+              <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+                <rect x="0.5" y="0.5" width="8" height="8" stroke="white" strokeWidth="1" fill="none" />
+                <rect x="0.5" y="0.5" width="8" height="2" fill="white" />
+              </svg>
+            )}
           </button>
+
+          {/* Close */}
           <button 
-            className="w-[21px] h-[21px] bg-gradient-to-br from-[#E55225] via-[#E55225] to-[#B0280D] text-white border border-white hover:brightness-110 rounded-[3px] shadow-sm flex items-center justify-center cursor-pointer active:from-[#d53e26] active:to-[#ba2d16]"
-            onClick={() => closeWindow(id)}
+            className="w-[21px] h-[21px] rounded-[3px] border border-white/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_1px_2px_rgba(0,0,0,0.3)] bg-gradient-to-b from-[#F26C4F] via-[#E55225] to-[#B0280D] hover:brightness-110 active:brightness-90 flex items-center justify-center cursor-pointer transition-all active:translate-y-[0.5px]"
+            onClick={(e) => {
+              e.stopPropagation();
+              closeWindow(id);
+            }}
+            title="Close"
           >
-            <X size={16} strokeWidth={3} className="drop-shadow-md pb-0.5 pr-0.5" />
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+              <path d="M1.5 1.5L7.5 7.5M7.5 1.5L1.5 7.5" stroke="white" strokeWidth="2" strokeLinecap="round" />
+            </svg>
           </button>
         </div>
       </div>
