@@ -10,7 +10,6 @@ import { StartMenu } from './StartMenu';
 import { Notepad } from '../apps/Notepad';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { BootScreen } from './BootScreen';
-import { STARTUP_AUDIO_BASE64 } from '@/config/audioData';
 
 export const OSContainer = () => {
   const { windows, openWindow, closeStartMenu, minimizeAll } = useOSStore();
@@ -25,8 +24,7 @@ export const OSContainer = () => {
     if (soundPlayedRef.current && !force) return;
 
     try {
-      // 1. Play base64 audio URI directly (0ms network delay, no 404s)
-      const audio = new Audio(STARTUP_AUDIO_BASE64);
+      const audio = new Audio('/startup.mp3');
       audio.volume = 1.0;
       const p = audio.play();
       
@@ -34,32 +32,7 @@ export const OSContainer = () => {
         p.then(() => {
           soundPlayedRef.current = true;
         }).catch(() => {
-          // If browser blocked base64 autoplay, try Web Audio Synthesizer
-          try {
-            const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-            if (AudioCtx) {
-              const ctx = new AudioCtx();
-              if (ctx.state === 'suspended') ctx.resume();
-              const now = ctx.currentTime;
-              const notes = [523.25, 659.25, 783.99, 1046.50];
-              notes.forEach((freq, idx) => {
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(freq, now + idx * 0.15);
-                gain.gain.setValueAtTime(0.01, now + idx * 0.15);
-                gain.gain.linearRampToValueAtTime(0.4, now + idx * 0.15 + 0.05);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.15 + 1.5);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start(now + idx * 0.15);
-                osc.stop(now + idx * 0.15 + 1.5);
-              });
-              soundPlayedRef.current = true;
-            }
-          } catch (e) {
-            soundPlayedRef.current = false;
-          }
+          soundPlayedRef.current = false;
         });
       }
     } catch (e) {
