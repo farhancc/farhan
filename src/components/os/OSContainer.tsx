@@ -73,20 +73,14 @@ export const OSContainer = () => {
 
     playStartupChime();
 
-    const handleUserInteraction = () => {
+    const handleUserMouseMove = () => {
       playStartupChime();
     };
 
-    window.addEventListener('click', handleUserInteraction);
-    window.addEventListener('pointerdown', handleUserInteraction);
-    window.addEventListener('keydown', handleUserInteraction);
-    window.addEventListener('touchstart', handleUserInteraction);
+    window.addEventListener('mousemove', handleUserMouseMove);
 
     return () => {
-      window.removeEventListener('click', handleUserInteraction);
-      window.removeEventListener('pointerdown', handleUserInteraction);
-      window.removeEventListener('keydown', handleUserInteraction);
-      window.removeEventListener('touchstart', handleUserInteraction);
+      window.removeEventListener('mousemove', handleUserMouseMove);
     };
   }, [playStartupChime]);
 
