@@ -8,8 +8,9 @@ import { Explorer } from '../apps/Explorer';
 import { Browser } from '../apps/Browser';
 import { StartMenu } from './StartMenu';
 import { Notepad } from '../apps/Notepad';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { BootScreen } from './BootScreen';
+import { STARTUP_AUDIO_BASE64 } from '@/config/audioData';
 
 export const OSContainer = () => {
   const { windows, openWindow, closeStartMenu, minimizeAll } = useOSStore();
@@ -23,71 +24,46 @@ export const OSContainer = () => {
   const playStartupChime = useCallback((force = false) => {
     if (soundPlayedRef.current && !force) return;
 
-    let played = false;
-
-    // 1. Web Audio API Synthesizer (Instant, 100% reliable, rich triangle + sine warm chime)
     try {
-      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
-      if (AudioContextClass) {
-        const ctx = new AudioContextClass();
-        if (ctx.state === 'suspended') {
-          ctx.resume();
-        }
-        const now = ctx.currentTime;
-
-        // Rich Warm Windows XP / 11 Chime Chord (C5 -> E5 -> G5 -> C6)
-        const notes = [
-          { freq: 523.25, time: 0.00, duration: 1.6, gain: 0.35 },
-          { freq: 659.25, time: 0.14, duration: 1.6, gain: 0.35 },
-          { freq: 783.99, time: 0.28, duration: 1.8, gain: 0.35 },
-          { freq: 1046.50, time: 0.42, duration: 2.3, gain: 0.45 },
-        ];
-
-        notes.forEach((n) => {
-          // Primary triangle harmonic (rich audible sound on laptop/mobile speakers)
-          const osc1 = ctx.createOscillator();
-          const gain1 = ctx.createGain();
-          osc1.type = 'triangle';
-          osc1.frequency.setValueAtTime(n.freq, now + n.time);
-          gain1.gain.setValueAtTime(0.001, now + n.time);
-          gain1.gain.linearRampToValueAtTime(n.gain, now + n.time + 0.04);
-          gain1.gain.exponentialRampToValueAtTime(0.0001, now + n.time + n.duration);
-          osc1.connect(gain1);
-          gain1.connect(ctx.destination);
-          osc1.start(now + n.time);
-          osc1.stop(now + n.time + n.duration);
-
-          // Sub sine warmth
-          const osc2 = ctx.createOscillator();
-          const gain2 = ctx.createGain();
-          osc2.type = 'sine';
-          osc2.frequency.setValueAtTime(n.freq, now + n.time);
-          gain2.gain.setValueAtTime(0.001, now + n.time);
-          gain2.gain.linearRampToValueAtTime(n.gain * 0.6, now + n.time + 0.04);
-          gain2.gain.exponentialRampToValueAtTime(0.0001, now + n.time + n.duration);
-          osc2.connect(gain2);
-          gain2.connect(ctx.destination);
-          osc2.start(now + n.time);
-          osc2.stop(now + n.time + n.duration);
+      // 1. Play base64 audio URI directly (0ms network delay, no 404s)
+      const audio = new Audio(STARTUP_AUDIO_BASE64);
+      audio.volume = 1.0;
+      const p = audio.play();
+      
+      if (p !== undefined) {
+        p.then(() => {
+          soundPlayedRef.current = true;
+        }).catch(() => {
+          // If browser blocked base64 autoplay, try Web Audio Synthesizer
+          try {
+            const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+            if (AudioCtx) {
+              const ctx = new AudioCtx();
+              if (ctx.state === 'suspended') ctx.resume();
+              const now = ctx.currentTime;
+              const notes = [523.25, 659.25, 783.99, 1046.50];
+              notes.forEach((freq, idx) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now + idx * 0.15);
+                gain.gain.setValueAtTime(0.01, now + idx * 0.15);
+                gain.gain.linearRampToValueAtTime(0.4, now + idx * 0.15 + 0.05);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.15 + 1.5);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now + idx * 0.15);
+                osc.stop(now + idx * 0.15 + 1.5);
+              });
+              soundPlayedRef.current = true;
+            }
+          } catch (e) {
+            soundPlayedRef.current = false;
+          }
         });
-
-        played = true;
       }
     } catch (e) {
-      console.warn('Web Audio synth notice:', e);
-    }
-
-    // 2. HTML5 Audio fallback
-    try {
-      const audio = new Audio('/startup.wav');
-      audio.volume = 0.9;
-      audio.play().then(() => {
-        played = true;
-      }).catch(() => {});
-    } catch (e) {}
-
-    if (played) {
-      soundPlayedRef.current = true;
+      soundPlayedRef.current = false;
     }
   }, []);
 

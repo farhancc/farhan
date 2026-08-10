@@ -68,6 +68,11 @@ export const BootScreen: React.FC<{ onStart?: () => void }> = ({ onStart }) => {
         </div>
       </div>
 
+      <div className="mt-8 px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-sans animate-pulse flex items-center space-x-2">
+        <span className="text-sm">🔊</span>
+        <span className="font-semibold tracking-wide">Click anywhere to start with sound</span>
+      </div>
+
       <div className="absolute bottom-10 text-white/40 text-[10px] font-sans italic">
         Copyright © Microsoft Corporation
       </div>
