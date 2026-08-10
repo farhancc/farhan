@@ -150,9 +150,6 @@ export const OSContainer = () => {
       }}
       onContextMenu={handleContextMenu}
     >
-      {/* XP Startup Sound - plays on first click */}
-      <audio ref={audioRef} src="https://www.myinstants.com/media/sounds/windows-xp-startup.mp3" preload="auto" />
-
       {/* Desktop Icons */}
       <div className="flex flex-col flex-wrap h-[calc(100vh-40px)] p-2 gap-2 items-start w-max content-start">
         {desktopIcons.map((icon) => (
