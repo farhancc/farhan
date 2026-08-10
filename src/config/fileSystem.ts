@@ -24,8 +24,8 @@ const icons = {
 };
 
 const ME = {
-  name:     'Farhan',
-  role:     'Full-Stack Developer & UI Architect',
+  name:     'Farhan CC',
+  role:     'Full Stack / Next.js Developer',
   location: 'Kerala, India',
   email:    'farhancc123@gmail.com',
   github:   'https://github.com/farhancc',
@@ -37,132 +37,317 @@ const ME = {
 };
 
 const RESUME_CONTENT = `
-  ╔══════════════════════════════════════╗
-  ║            FARHAN                    ║
-  ║   Full-Stack Developer              ║
-  ╚══════════════════════════════════════╝
+  ╔══════════════════════════════════════════════════════════╗
+  ║                 FARHAN CC                                ║
+  ║  Full Stack Developer | Next.js, TypeScript & SaaS       ║
+  ╚══════════════════════════════════════════════════════════╝
 
   📧  farhancc123@gmail.com
   📞  +91 9961157999
   🐙  github.com/farhancc
   💼  linkedin.com/in/farhan-cc
 
-  ──────────────────────────────────────
+  ──────────────────────────────────────────────────────────
   SUMMARY
-  ──────────────────────────────────────
-  Full-stack developer with experience
-  building production web applications.
-  I obsess over clean architecture,
-  beautiful UIs, and developer experience.
-  Open to full-time & freelance work.
+  ──────────────────────────────────────────────────────────
+  Full Stack Developer specializing in Next.js, TypeScript,
+  Node.js, and modern cloud architectures. Extensive experience
+  in building multi-tenant SaaS platforms, Odoo ERP integrations,
+  AI-powered workflows (OpenAI + RAG), analytics dashboards,
+  and high-performance hybrid desktop/web applications.
 
-  ──────────────────────────────────────
-  EXPERIENCE
-  ──────────────────────────────────────
-  Full-Stack Dev  •  Freelance / Production
-  • Shipped multiple production web apps & ERP systems
-  • Built real-time dashboards & custom platforms
-  • End-to-end full-stack web development
+  ──────────────────────────────────────────────────────────
+  FEATURED PROJECTS
+  ──────────────────────────────────────────────────────────
+  1. Sales Intelligence Platform (Multi-Tenant SaaS / AI / Odoo)
+     • Connects Odoo ERP data to AI Sales Copilot via OpenAI + RAG
+     • Centralized sales dashboards & analytics insights
+
+  2. Careva — Salon & Spa ERP (Multi-Tenant SaaS)
+     • Multi-tenant ERP with wildcard subdomain isolation
+     • POS, Inventory, CRM, Bookings, Calendar & WhatsApp CRM
+
+  3. IDexo — Variable Data Printing SaaS (Cloud + Electron)
+     • Multi-tenant SaaS with hybrid Electron.js architecture
+     • Offloads heavy PDF generation from cloud servers to local CPU
+
+  4. Sedeer Customer Portal & Commercial Applications
+     • Next.js e-commerce portal integrated with Odoo ERP
+     • Pets Colony, NikahRoots, Olo Rental & Kiyano Ice Cream
 `;
 
 const SKILLS_CONTENT = `
-  ╔══════════════════════════════════════╗
-  ║        TECHNICAL SKILLS             ║
-  ╚══════════════════════════════════════╝
+  ╔══════════════════════════════════════════════════════════╗
+  ║                TECHNICAL EXPERTISE                       ║
+  ╚══════════════════════════════════════════════════════════╝
 
-  ──────────────────────────────────────
-  LANGUAGES
-  ──────────────────────────────────────
-  ★★★★★  TypeScript / JavaScript
-  ★★★★★  HTML5 / CSS3
-  ★★★☆☆  Python
-  ★★★☆☆  SQL
+  ──────────────────────────────────────────────────────────
+  FRONTEND
+  ──────────────────────────────────────────────────────────
+  ✓  Next.js, React.js, TypeScript
+  ✓  Tailwind CSS, Zustand, Redux Toolkit, React Query
 
-  ──────────────────────────────────────
-  FRONTEND & BACKEND
-  ──────────────────────────────────────
-  ✓  React, Next.js (App Router)
-  ✓  Tailwind CSS, Framer Motion
-  ✓  Node.js, Express, REST APIs
-  ✓  PostgreSQL, MongoDB, Prisma, Redis
-  ✓  Vercel, Docker
+  ──────────────────────────────────────────────────────────
+  BACKEND & DATABASE
+  ──────────────────────────────────────────────────────────
+  ✓  Node.js, NestJS, Express.js, REST APIs, JWT
+  ✓  PostgreSQL, MongoDB, Redis
+
+  ──────────────────────────────────────────────────────────
+  ARCHITECTURE & AI
+  ──────────────────────────────────────────────────────────
+  ★  Multi-Tenant SaaS Architecture & Tenant Isolation
+  ★  ERP Integration (Odoo ERP)
+  ★  AI Applications (OpenAI API, RAG Architecture)
+  ★  Client/Server Workload Distribution (Electron.js)
+
+  ──────────────────────────────────────────────────────────
+  INFRASTRUCTURE & TOOLS
+  ──────────────────────────────────────────────────────────
+  ✓  Docker, Cloudinary, Git/GitHub, Vercel
 `;
 
 const ABOUT_CONTENT = `
-  ╔══════════════════════════════════════╗
-  ║       HI, I'M FARHAN 👋              ║
-  ╚══════════════════════════════════════╝
+  ╔══════════════════════════════════════════════════════════╗
+  ║       HI, I'M FARHAN CC 👋                               ║
+  ╚══════════════════════════════════════════════════════════╝
 
   Welcome to my portfolio!
-  Built as a Windows XP desktop sim
-  because a plain React page is boring.
+  Built as a Windows XP desktop simulation to demonstrate
+  product craftsmanship and interactive system design.
 
-  ──────────────────────────────────────
-  WHO AM I?
-  ──────────────────────────────────────
-  Full-stack developer who loves building
-  things that feel magical.
+  ──────────────────────────────────────────────────────────
+  WHAT I BUILD
+  ──────────────────────────────────────────────────────────
+  Full Stack Developer building real software products:
 
-  → Fast, accessible, beautiful UIs
-  → Rock-solid backend architecture
-  → Developer experience & clean code
-  → Ship things that actually work
+  → Multi-Tenant SaaS Architecture (Subdomains, Isolation)
+  → Enterprise ERP Integrations (Odoo ERP, POS, CRM, Inventory)
+  → Modern AI Systems (OpenAI API, RAG Knowledge Retrieval)
+  → Hybrid Desktop/Cloud Architectures (Electron CPU Offloading)
 
-  Currently open for opportunities
-  where I can push the web forward.
-
-  ──────────────────────────────────────
-  FUN FACT
-  ──────────────────────────────────────
-  This portfolio is built as a retro desktop simulation:
-  real window manager, virtual file system, and browser!
+  Open for Full Stack & Next.js engineering opportunities!
 `;
 
 const CONTACT_CONTENT = `
-  ╔══════════════════════════════════════╗
-  ║          CONTACT FARHAN              ║
-  ╚══════════════════════════════════════╝
+  ╔══════════════════════════════════════════════════════════╗
+  ║          CONTACT FARHAN CC                               ║
+  ╚══════════════════════════════════════════════════════════╝
 
   📧  farhancc123@gmail.com
   📞  +91 9961157999
   🐙  github.com/farhancc
   💼  linkedin.com/in/farhan-cc
 
-  ──────────────────────────────────────
+  ──────────────────────────────────────────────────────────
   OPEN TO
-  ──────────────────────────────────────
-  ✓  Full-time frontend / full-stack
-  ✓  Freelance & consulting
-  ✓  Open source collaboration
+  ──────────────────────────────────────────────────────────
+  ✓  Full-Time Full Stack / Next.js Developer roles
+  ✓  SaaS & Product Architecture Consulting
+  ✓  Freelance Contracts & Open Source Collaboration
 
   Let's build something great! 🚀
 `;
 
 const MY_COMPUTER_CONTENT = `
-  ╔══════════════════════════════════════╗
-  ║      MY COMPUTER — Properties       ║
-  ╚══════════════════════════════════════╝
+  ╔══════════════════════════════════════════════════════════╗
+  ║      MY COMPUTER — System Properties                     ║
+  ╚══════════════════════════════════════════════════════════╝
 
   System  : Windows XP Professional
-  Build   : Farhan Portfolio (2026)
+  Build   : Farhan CC Portfolio (2026)
 
-  ──────────────────────────────────────
-  PROCESSOR
-  ──────────────────────────────────────
-  Model  : Farhan's Brain™ @ 3.0 GHz
-  Cores  : 8  (focus mode: 4)
+  ──────────────────────────────────────────────────────────
+  PROCESSOR & STACK
+  ──────────────────────────────────────────────────────────
+  Model  : Next.js + TypeScript + Node.js @ 3.0 GHz
+  Cores  : 8 Cores (Multi-Tenancy, AI/RAG, Odoo ERP)
 
-  ──────────────────────────────────────
-  NETWORK
-  ──────────────────────────────────────
-  Status : Online — Available for hire
+  ──────────────────────────────────────────────────────────
+  NETWORK STATUS
+  ──────────────────────────────────────────────────────────
+  Status : Online — Open for hire
   Ping   : farhancc123@gmail.com
 
-  ──────────────────────────────────────
+  ──────────────────────────────────────────────────────────
   REGISTERED TO
-  ──────────────────────────────────────
-  Name   : Farhan
-  Role   : Full-Stack Developer
+  ──────────────────────────────────────────────────────────
+  Name   : Farhan CC
+  Role   : Full Stack / Next.js Developer
+`;
+
+const PROJECT_OVERVIEW_TXT = `
+  ╔══════════════════════════════════════════════════════════╗
+  ║            PROJECT PORTFOLIO OVERVIEW                    ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  This folder contains the complete project catalog and technical
+  architectural breakdowns for Farhan CC's engineering work.
+
+  TECHNICAL THEMES & ARCHITECTURE:
+  1. Multi-Tenant SaaS Architecture (Subdomains, Isolation, Billing)
+  2. ERP & Business Workflows (Odoo ERP Integration, CRM, POS)
+  3. Modern AI Systems (OpenAI API, RAG Context Retrieval)
+  4. Hybrid Desktop/Cloud Systems (Electron.js CPU Offloading)
+
+  PROJECT FILES IN THIS DIRECTORY:
+  • 01_Sales_Intelligence.txt  → Multi-Tenant SaaS + Odoo + AI Copilot
+  • 02_Careva_Spa_ERP.txt      → Multi-Tenant Salon ERP + Subdomains
+  • 03_IDexo_SaaS.txt          → Variable Data Printing + Electron
+  • 04_Sedeer_Portal.txt       → Next.js + Odoo Customer Commerce
+  • 05_Pets_Colony.txt         → Peer-to-Peer Marketplace
+  • 06_NikahRoots.txt          → Matrimonial Matchmaking Platform
+  • 07_Olo_Rental.txt          → Rental Booking Platform
+  • 08_Kiyano_Ice_Cream.txt    → Brand Frontend Site
+`;
+
+const SALESINTEL_TXT = `
+  ╔══════════════════════════════════════════════════════════╗
+  ║           SALES INTELLIGENCE PLATFORM                    ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  Category : Multi-Tenant SaaS / AI / Business Intelligence
+  Live     : https://salesintel-frontend.zbeanztech.com/login
+
+  OVERVIEW:
+  A multi-tenant SaaS platform that connects organizations to their
+  Odoo ERP and transforms raw business data into actionable sales
+  intelligence, customer insights, and product analytics.
+
+  CORE FEATURES:
+  • Multi-tenant SaaS architecture with full Odoo ERP integration
+  • Centralized sales dashboards & analytics telemetry
+  • Customer & Product intelligence insights
+  • AI Sales Copilot for decision support
+
+  AI & RAG ARCHITECTURE:
+  Odoo ERP Data → Data Processing → Company Knowledge Layer 
+  → RAG (Retrieval-Augmented Generation) → OpenAI API → Contextual Sales Copilot
+
+  TECHNOLOGIES:
+  Next.js, React.js, TypeScript, Node.js, Odoo ERP, OpenAI API, RAG, REST APIs
+`;
+
+const CAREVA_TXT = `
+  ╔══════════════════════════════════════════════════════════╗
+  ║               CAREVA — SALON & SPA ERP                   ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  Category : Multi-Tenant SaaS / ERP
+  Live     : https://spa-erp-gamma.vercel.app/
+  GitHub   : https://github.com/farhancc/spa-erp
+
+  OVERVIEW:
+  Careva is a comprehensive multi-tenant ERP platform built for salons
+  and spas, integrating operations, scheduling, POS, and customer CRM.
+
+  CORE MODULES:
+  • POS & Inventory Management
+  • Sales & CRM workflows
+  • Appointment Booking & Staff Calendar
+  • WhatsApp CRM & Appointment Reminders
+  • Tenant-specific wildcard subdomain support (tenant.example.com)
+
+  TECHNOLOGIES:
+  Next.js, NestJS, TypeScript, PostgreSQL, Cloudinary
+`;
+
+const IDEXO_TXT = `
+  ╔══════════════════════════════════════════════════════════╗
+  ║      IDEXO — VARIABLE DATA PRINTING SAAS                 ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  Category : SaaS / Document Processing / Electron / Automation
+  Live     : https://idexocards.vercel.app/
+  GitHub   : https://github.com/farhancc/student-idcard-system
+
+  OVERVIEW:
+  IDexo is a multi-tenant variable data printing SaaS designed to automate
+  large-scale personalized ID card creation.
+
+  HYBRID ARCHITECTURE:
+  Combines a cloud-based Next.js SaaS app with a native Electron.js desktop
+  application to offload CPU-intensive high-resolution PDF rendering from
+  cloud servers to client machines.
+
+  KEY FEATURES:
+  • Credit-based billing & bulk Excel data import
+  • Dynamic template engine & placeholder field mapping
+  • Separate Approval PDF and high-res Production PDF workflows
+
+  TECHNOLOGIES:
+  Next.js, Node.js, TypeScript, Electron.js, Cloudinary
+`;
+
+const SEDEER_TXT = `
+  ╔══════════════════════════════════════════════════════════╗
+  ║               SEDEER CUSTOMER PORTAL                     ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  Category : E-Commerce / Customer Portal / ERP Integration
+  Live     : http://portal.sedeer.com/
+
+  OVERVIEW:
+  Customer-facing commerce portal built with Next.js and integrated with
+  Odoo ERP as the backend engine for live product data and commerce workflows.
+
+  TECHNOLOGIES:
+  Next.js, React.js, TypeScript, Odoo ERP, REST/API integration
+`;
+
+const PETSCOLONY_TXT = `
+  ╔══════════════════════════════════════════════════════════╗
+  ║                   PETS COLONY                            ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  Category : Peer-to-Peer Marketplace
+  Live     : https://www.petscolony.in/
+  GitHub   : https://github.com/farhancc/keralapetsandplants
+
+  OVERVIEW:
+  Peer-to-peer marketplace platform connecting pet owners and buyers
+  through searchable pet listings and customer-facing discovery workflows.
+`;
+
+const NIKAHROOTS_TXT = `
+  ╔══════════════════════════════════════════════════════════╗
+  ║                   NIKAHROOTS                             ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  Category : Matrimonial / Social Platform
+  Live     : https://www.nikahroots.in/en/home
+  GitHub   : https://github.com/farhancc/MatchMaking
+
+  OVERVIEW:
+  Community matrimonial matchmaking platform featuring profile discovery,
+  user management, and matchmaking workflows.
+`;
+
+const OLORENTAL_TXT = `
+  ╔══════════════════════════════════════════════════════════╗
+  ║                   OLO RENTAL                             ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  Category : Rental Platform
+  Live     : https://olorental.com/
+
+  OVERVIEW:
+  Rental booking application featuring product showcase, availability,
+  and reservation workflows.
+`;
+
+const KIYANO_TXT = `
+  ╔══════════════════════════════════════════════════════════╗
+  ║              KIYANO ICE CREAM                            ║
+  ╚══════════════════════════════════════════════════════════╝
+
+  Category : Brand / Marketing Website
+  Live     : https://kiyanoicecream.com/
+  GitHub   : https://github.com/farhancc/ICECREAMCOMPANYLANDING-
+
+  OVERVIEW:
+  Responsive brand website designed with modern UI presentation, fluid
+  animations, and product-focused user experience.
 `;
 
 export const fileSystem: Record<string, FileItem> = {
@@ -189,20 +374,36 @@ export const fileSystem: Record<string, FileItem> = {
     content: MY_COMPUTER_CONTENT, openBehavior: 'internal', icon: icons.txt,
   },
 
-  // ── Projects — FLAT (no nested folders) ──────────────────────────────────────
+  // ── Projects Folder ─────────────────────────────────────────────────────────
   projects: {
     id: 'projects', name: 'Projects', type: 'folder', icon: icons.folder,
     children: [
-      'spa-erp-live', 'spa-erp-github', 
-      'idexo-live', 'idexo-github', 
-      'petscolony-live', 'petscolony-github', 
-      'nikahroots-live', 'nikahroots-github', 
-      'lms-live', 'lms-github', 
-      'kiyano-live', 'kiyano-github',
-      'sedeer-live',
-      'salesintel-live',
-      'olorental-live',
+      'proj-readme-txt',
+      'proj-salesintel-txt', 'salesintel-live',
+      'proj-careva-txt', 'spa-erp-live', 'spa-erp-github', 
+      'proj-idexo-txt', 'idexo-live', 'idexo-github', 
+      'proj-sedeer-txt', 'sedeer-live',
+      'proj-petscolony-txt', 'petscolony-live', 'petscolony-github', 
+      'proj-nikahroots-txt', 'nikahroots-live', 'nikahroots-github', 
+      'proj-olorental-txt', 'olorental-live',
+      'proj-kiyano-txt', 'kiyano-live', 'kiyano-github',
     ],
+  },
+  'proj-readme-txt': {
+    id: 'proj-readme-txt', name: '00_Project_Overview.txt', type: 'shortcut',
+    content: PROJECT_OVERVIEW_TXT, openBehavior: 'internal', icon: icons.txt,
+  },
+  'proj-salesintel-txt': {
+    id: 'proj-salesintel-txt', name: '01_Sales_Intelligence.txt', type: 'shortcut',
+    content: SALESINTEL_TXT, openBehavior: 'internal', icon: icons.txt,
+  },
+  'salesintel-live': {
+    id: 'salesintel-live', name: 'Sales Intelligence — Live.lnk', type: 'project',
+    content: 'https://salesintel-frontend.zbeanztech.com/login', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'proj-careva-txt': {
+    id: 'proj-careva-txt', name: '02_Careva_Spa_ERP.txt', type: 'shortcut',
+    content: CAREVA_TXT, openBehavior: 'internal', icon: icons.txt,
   },
   'spa-erp-live': {
     id: 'spa-erp-live', name: 'Careva Spa ERP — Live.lnk', type: 'project',
@@ -212,6 +413,10 @@ export const fileSystem: Record<string, FileItem> = {
     id: 'spa-erp-github', name: 'Careva Spa ERP — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/spa-erp', openBehavior: 'external', icon: icons.github,
   },
+  'proj-idexo-txt': {
+    id: 'proj-idexo-txt', name: '03_IDexo_Printing_SaaS.txt', type: 'shortcut',
+    content: IDEXO_TXT, openBehavior: 'internal', icon: icons.txt,
+  },
   'idexo-live': {
     id: 'idexo-live', name: 'IDexo Cards — Live.lnk', type: 'project',
     content: 'https://idexocards.vercel.app/', openBehavior: 'external', icon: icons.liveLink,
@@ -219,6 +424,18 @@ export const fileSystem: Record<string, FileItem> = {
   'idexo-github': {
     id: 'idexo-github', name: 'Student ID Card System — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/student-idcard-system', openBehavior: 'external', icon: icons.github,
+  },
+  'proj-sedeer-txt': {
+    id: 'proj-sedeer-txt', name: '04_Sedeer_Portal.txt', type: 'shortcut',
+    content: SEDEER_TXT, openBehavior: 'internal', icon: icons.txt,
+  },
+  'sedeer-live': {
+    id: 'sedeer-live', name: 'Sedeer Portal — Live.lnk', type: 'project',
+    content: 'http://portal.sedeer.com/', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'proj-petscolony-txt': {
+    id: 'proj-petscolony-txt', name: '05_Pets_Colony.txt', type: 'shortcut',
+    content: PETSCOLONY_TXT, openBehavior: 'internal', icon: icons.txt,
   },
   'petscolony-live': {
     id: 'petscolony-live', name: 'Pets Colony — Live.lnk', type: 'project',
@@ -228,6 +445,10 @@ export const fileSystem: Record<string, FileItem> = {
     id: 'petscolony-github', name: 'Pets Colony — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/keralapetsandplants', openBehavior: 'external', icon: icons.github,
   },
+  'proj-nikahroots-txt': {
+    id: 'proj-nikahroots-txt', name: '06_NikahRoots.txt', type: 'shortcut',
+    content: NIKAHROOTS_TXT, openBehavior: 'internal', icon: icons.txt,
+  },
   'nikahroots-live': {
     id: 'nikahroots-live', name: 'NikahRoots — Live.lnk', type: 'project',
     content: 'https://www.nikahroots.in/en/home', openBehavior: 'external', icon: icons.liveLink,
@@ -236,13 +457,17 @@ export const fileSystem: Record<string, FileItem> = {
     id: 'nikahroots-github', name: 'NikahRoots Matchmaking — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/MatchMaking', openBehavior: 'external', icon: icons.github,
   },
-  'lms-live': {
-    id: 'lms-live', name: 'LMS App — Live.lnk', type: 'project',
-    content: 'https://lms-app-phi.vercel.app/', openBehavior: 'external', icon: icons.liveLink,
+  'proj-olorental-txt': {
+    id: 'proj-olorental-txt', name: '07_Olo_Rental.txt', type: 'shortcut',
+    content: OLORENTAL_TXT, openBehavior: 'internal', icon: icons.txt,
   },
-  'lms-github': {
-    id: 'lms-github', name: 'LMS App — GitHub.lnk', type: 'shortcut',
-    content: 'https://github.com/farhancc/LMS-app', openBehavior: 'external', icon: icons.github,
+  'olorental-live': {
+    id: 'olorental-live', name: 'Olo Rental — Live.lnk', type: 'project',
+    content: 'https://olorental.com/', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'proj-kiyano-txt': {
+    id: 'proj-kiyano-txt', name: '08_Kiyano_Ice_Cream.txt', type: 'shortcut',
+    content: KIYANO_TXT, openBehavior: 'internal', icon: icons.txt,
   },
   'kiyano-live': {
     id: 'kiyano-live', name: 'Kiyano Ice Cream — Live.lnk', type: 'project',
@@ -251,18 +476,6 @@ export const fileSystem: Record<string, FileItem> = {
   'kiyano-github': {
     id: 'kiyano-github', name: 'Kiyano Ice Cream — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/ICECREAMCOMPANYLANDING-', openBehavior: 'external', icon: icons.github,
-  },
-  'sedeer-live': {
-    id: 'sedeer-live', name: 'Sedeer Portal — Live.lnk', type: 'project',
-    content: 'http://portal.sedeer.com/', openBehavior: 'external', icon: icons.liveLink,
-  },
-  'salesintel-live': {
-    id: 'salesintel-live', name: 'Sales Intelligence — Live.lnk', type: 'project',
-    content: 'https://salesintel-frontend.zbeanztech.com/login', openBehavior: 'external', icon: icons.liveLink,
-  },
-  'olorental-live': {
-    id: 'olorental-live', name: 'Olo Rental — Live.lnk', type: 'project',
-    content: 'https://olorental.com/', openBehavior: 'external', icon: icons.liveLink,
   },
 
   // ── Text Files ───────────────────────────────────────────────────────────────
