@@ -24,34 +24,32 @@ const icons = {
 };
 
 const ME = {
-  name:     'Alex Carter',
+  name:     'Farhan',
   role:     'Full-Stack Developer & UI Architect',
-  location: 'San Francisco, CA',
-  email:    'alex.carter.dev@gmail.com',
-  github:   'https://github.com/alexcarterdev',
-  linkedin: 'https://linkedin.com/in/alexcarterdev',
-  leetcode: 'https://leetcode.com/alexcarterdev',
-  website:  'https://alexcarter.dev',
-  phone:    '+1 (415) 555-0182',
+  location: 'Kerala, India',
+  email:    'farhancc123@gmail.com',
+  github:   'https://github.com/farhancc',
+  linkedin: 'https://linkedin.com/in/farhancc',
+  leetcode: 'https://leetcode.com/farhancc',
+  website:  'https://github.com/farhancc',
+  phone:    '',
   cvUrl:    'https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID',
 };
 
 const RESUME_CONTENT = `
   ╔══════════════════════════════════════╗
-  ║         ALEX CARTER                 ║
+  ║            FARHAN                    ║
   ║   Full-Stack Developer              ║
-  ║   San Francisco, CA                 ║
   ╚══════════════════════════════════════╝
 
-  📧  alex.carter.dev@gmail.com
-  🐙  github.com/alexcarterdev
-  💼  linkedin.com/in/alexcarterdev
-  📞  +1 (415) 555-0182
+  📧  farhancc123@gmail.com
+  🐙  github.com/farhancc
+  💼  linkedin.com/in/farhancc
 
   ──────────────────────────────────────
   SUMMARY
   ──────────────────────────────────────
-  Full-stack developer with 3+ years
+  Full-stack developer with experience
   building production web applications.
   I obsess over clean architecture,
   beautiful UIs, and developer experience.
@@ -60,30 +58,10 @@ const RESUME_CONTENT = `
   ──────────────────────────────────────
   EXPERIENCE
   ──────────────────────────────────────
-  Full-Stack Dev  •  Freelance
-  2022 – Present
-  • Shipped 8+ production apps
-  • Reduced load times by 40% (SSR)
-  • Built real-time WebSocket dashboards
-
-  Frontend Engineer  •  StartupXYZ
-  2021 – 2022
-  • Led CRA → Next.js App Router migration
-  • Introduced Zustand (60% less renders)
-  • Mentored 2 junior developers
-
-  ──────────────────────────────────────
-  EDUCATION
-  ──────────────────────────────────────
-  B.S. Computer Science
-  UC Berkeley  •  GPA: 3.8 / 4.0  •  2021
-
-  ──────────────────────────────────────
-  ACHIEVEMENTS
-  ──────────────────────────────────────
-  🏆  1st place — HackSF 2023
-  ⭐  400+ GitHub stars
-  📝  12k+ monthly readers dev.to
+  Full-Stack Dev  •  Freelance / Production
+  • Shipped multiple production web apps & ERP systems
+  • Built real-time dashboards & custom platforms
+  • End-to-end full-stack web development
 `;
 
 const SKILLS_CONTENT = `
@@ -100,38 +78,18 @@ const SKILLS_CONTENT = `
   ★★★☆☆  SQL
 
   ──────────────────────────────────────
-  FRONTEND
+  FRONTEND & BACKEND
   ──────────────────────────────────────
-  ✓  React 18, Next.js 14 (App Router)
+  ✓  React, Next.js (App Router)
   ✓  Tailwind CSS, Framer Motion
-  ✓  Zustand, React Query
-  ✓  Shadcn/ui, Radix UI
-
-  ──────────────────────────────────────
-  BACKEND
-  ──────────────────────────────────────
-  ✓  Node.js, Express, Fastify
-  ✓  REST APIs, GraphQL
-  ✓  Prisma ORM, Drizzle
-
-  ──────────────────────────────────────
-  DATABASES & INFRA
-  ──────────────────────────────────────
-  ✓  PostgreSQL, MongoDB, Redis
-  ✓  Docker, Vercel, AWS (S3/EC2)
-  ✓  GitHub Actions (CI/CD)
-
-  ──────────────────────────────────────
-  PROBLEM SOLVING
-  ──────────────────────────────────────
-  🟨  LeetCode: 350+ problems solved
-      Top 15% globally
-      Strong in: Arrays, Trees, DP
+  ✓  Node.js, Express, REST APIs
+  ✓  PostgreSQL, MongoDB, Prisma, Redis
+  ✓  Vercel, Docker
 `;
 
 const ABOUT_CONTENT = `
   ╔══════════════════════════════════════╗
-  ║     HI, I'M ALEX CARTER 👋          ║
+  ║       HI, I'M FARHAN 👋              ║
   ╚══════════════════════════════════════╝
 
   Welcome to my portfolio!
@@ -149,36 +107,24 @@ const ABOUT_CONTENT = `
   → Developer experience & clean code
   → Ship things that actually work
 
-  Currently seeking full-time roles
+  Currently open for opportunities
   where I can push the web forward.
-
-  ──────────────────────────────────────
-  OUTSIDE CODE
-  ──────────────────────────────────────
-  🎮  Retro OS nostalgia & game modding
-  📸  Street photography
-  ☕  Specialty coffee enthusiast
-  📚  "A Philosophy of Software Design"
 
   ──────────────────────────────────────
   FUN FACT
   ──────────────────────────────────────
-  This portfolio is built entirely from
-  scratch: real window manager, virtual
-  file system, browser — no libs needed.
-  Just React + Zustand + Tailwind CSS.
+  This portfolio is built as a retro desktop simulation:
+  real window manager, virtual file system, and browser!
 `;
 
 const CONTACT_CONTENT = `
   ╔══════════════════════════════════════╗
-  ║        CONTACT ALEX CARTER          ║
+  ║          CONTACT FARHAN              ║
   ╚══════════════════════════════════════╝
 
-  📧  alex.carter.dev@gmail.com
-  💼  linkedin.com/in/alexcarterdev
-  🐙  github.com/alexcarterdev
-  🌐  alexcarter.dev
-  📞  +1 (415) 555-0182
+  📧  farhancc123@gmail.com
+  🐙  github.com/farhancc
+  💼  linkedin.com/in/farhancc
 
   ──────────────────────────────────────
   OPEN TO
@@ -186,9 +132,6 @@ const CONTACT_CONTENT = `
   ✓  Full-time frontend / full-stack
   ✓  Freelance & consulting
   ✓  Open source collaboration
-
-  Best way: email or LinkedIn DM.
-  ⏱  Response time: within 24 hours.
 
   Let's build something great! 🚀
 `;
@@ -199,34 +142,25 @@ const MY_COMPUTER_CONTENT = `
   ╚══════════════════════════════════════╝
 
   System  : Windows XP Professional
-  Build   : Alex Portfolio v3.0.0 (2024)
+  Build   : Farhan Portfolio (2026)
 
   ──────────────────────────────────────
   PROCESSOR
   ──────────────────────────────────────
-  Model  : Alex's Brain™ @ 3.0 GHz
+  Model  : Farhan's Brain™ @ 3.0 GHz
   Cores  : 8  (focus mode: 4)
-  Cache  : 16GB curiosity buffer
-
-  ──────────────────────────────────────
-  STORAGE
-  ──────────────────────────────────────
-  C:\\   Local Disk      [8 apps shipped]
-  E:\\   Portfolio Drive [resume, skills]
 
   ──────────────────────────────────────
   NETWORK
   ──────────────────────────────────────
   Status : Online — Available for hire
-  Speed  : 800 Mbps (fast learner)
-  Ping   : alex.carter.dev@gmail.com
+  Ping   : farhancc123@gmail.com
 
   ──────────────────────────────────────
   REGISTERED TO
   ──────────────────────────────────────
-  Name   : Alex Carter
+  Name   : Farhan
   Role   : Full-Stack Developer
-  City   : San Francisco, CA
 `;
 
 export const fileSystem: Record<string, FileItem> = {

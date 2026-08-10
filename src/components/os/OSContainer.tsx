@@ -45,7 +45,7 @@ export const OSContainer = () => {
     if (file.content === 'CV_DOWNLOAD') {
       const a = document.createElement('a');
       a.href = 'https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID';
-      a.download = 'Alex_Carter_CV.pdf';
+      a.download = 'Farhan_CV.pdf';
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
       document.body.appendChild(a);
