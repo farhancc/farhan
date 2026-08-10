@@ -37,7 +37,15 @@ export const OSContainer = () => {
     return () => window.removeEventListener('click', playSound);
   }, []);
 
+  const lastOpenTimeRef = useRef<Record<string, number>>({});
+
   const handleIconDoubleClick = (fileId: string) => {
+    const now = Date.now();
+    if (now - (lastOpenTimeRef.current[fileId] || 0) < 500) {
+      return;
+    }
+    lastOpenTimeRef.current[fileId] = now;
+
     const file = fileSystem[fileId];
     if (!file) return;
 
@@ -110,12 +118,8 @@ export const OSContainer = () => {
             }`}
             onClick={(e) => { 
               e.stopPropagation(); 
-              if (selectedIcon === icon.id) {
-                handleIconDoubleClick(icon.id);
-              } else {
-                setSelectedIcon(icon.id); 
-                setIconContextMenu(null); 
-              }
+              setSelectedIcon(icon.id); 
+              setIconContextMenu(null); 
             }}
             onDoubleClick={() => handleIconDoubleClick(icon.id)}
             onContextMenu={(e) => handleIconContextMenu(e, icon.id)}

@@ -9,7 +9,15 @@ export const Explorer: React.FC<{ folderId: string }> = ({ folderId }) => {
   const folder = fileSystem[folderId];
   const { openWindow } = useOSStore();
 
+  const lastOpenTimeRef = React.useRef<Record<string, number>>({});
+
   const handleDoubleClick = (fileId: string) => {
+    const now = Date.now();
+    if (now - (lastOpenTimeRef.current[fileId] || 0) < 500) {
+      return;
+    }
+    lastOpenTimeRef.current[fileId] = now;
+
     const file = fileSystem[fileId];
     if (!file) return;
 
