@@ -105,7 +105,13 @@ export const Taskbar = () => {
              {/* Security Center Shield */}
              <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]"><path fill="#F44336" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/><path fill="#FFC107" d="M12 3v18c4.46-1.12 7.82-5.71 7.82-10V6.3z"/></svg>
              {/* Sound */}
-             <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]"><path fill="#fff" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+             <button 
+               title="Play Windows Sound" 
+               onClick={(e) => { e.stopPropagation(); (window as any).playStartupSound?.(); }} 
+               className="hover:scale-125 active:scale-95 transition-transform outline-none cursor-pointer flex items-center justify-center"
+             >
+               <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]"><path fill="#fff" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+             </button>
              {/* Safe Remove */}
              <svg viewBox="0 0 24 24" className="w-[14px] h-[14px]"><circle cx="12" cy="12" r="10" fill="#4CAF50"/><path fill="#fff" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
         </div>

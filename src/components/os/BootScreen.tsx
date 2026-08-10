@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-export const BootScreen = () => {
+export const BootScreen: React.FC<{ onStart?: () => void }> = ({ onStart }) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -13,7 +13,10 @@ export const BootScreen = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[10000] bg-black flex flex-col items-center justify-center select-none cursor-none">
+    <div 
+      onClick={onStart}
+      className="fixed inset-0 z-[10000] bg-black flex flex-col items-center justify-center select-none cursor-pointer"
+    >
       <div className="flex flex-col items-center mb-16 scale-125">
         <div className="flex mb-3">
            <svg width="72" height="72" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">

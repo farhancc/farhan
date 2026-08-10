@@ -20,83 +20,56 @@ export const OSContainer = () => {
   const [booting, setBooting] = useState(true);
   const soundPlayedRef = useRef(false);
 
-  const playStartupChime = () => {
-    if (soundPlayedRef.current) return;
+  const playStartupChime = useCallback((force = false) => {
+    if (soundPlayedRef.current && !force) return;
 
-    // Method 1: HTML5 Audio using local synthesized /startup.wav
-    const audio = new Audio('/startup.wav');
-    audio.volume = 0.85;
+    try {
+      const audio = new Audio('/startup.wav');
+      audio.volume = 0.9;
 
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        soundPlayedRef.current = true;
-      }).catch(() => {
-        // Method 2: Fallback to Web Audio API Synthesizer
-        try {
-          const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-          if (!AudioCtx) return;
-          const ctx = new AudioCtx();
-          if (ctx.state === 'suspended') {
-            ctx.resume();
-          }
-
-          const notes = [
-            { freq: 523.25, delay: 0.00, dur: 1.4 },
-            { freq: 659.25, delay: 0.12, dur: 1.4 },
-            { freq: 783.99, delay: 0.24, dur: 1.6 },
-            { freq: 1046.50, delay: 0.36, dur: 2.2 },
-          ];
-
-          notes.forEach(({ freq, delay, dur }) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(freq, ctx.currentTime + delay);
-
-            gain.gain.setValueAtTime(0.0001, ctx.currentTime + delay);
-            gain.gain.linearRampToValueAtTime(0.25, ctx.currentTime + delay + 0.04);
-            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + delay + dur);
-
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-
-            osc.start(ctx.currentTime + delay);
-            osc.stop(ctx.currentTime + delay + dur);
-          });
+      const p = audio.play();
+      if (p !== undefined) {
+        p.then(() => {
           soundPlayedRef.current = true;
-        } catch (e) {
-          console.warn('Audio play notice', e);
-        }
-      });
+        }).catch(() => {
+          soundPlayedRef.current = false;
+        });
+      }
+    } catch (e) {
+      soundPlayedRef.current = false;
     }
-  };
+  }, []);
 
   useEffect(() => {
+    (window as any).playStartupSound = () => playStartupChime(true);
+
     const timer = setTimeout(() => {
       setBooting(false);
       playStartupChime();
     }, 3500);
 
-    const triggerSound = () => {
+    const handleUserInteraction = () => {
       playStartupChime();
-      ['pointerdown', 'keydown', 'click', 'touchstart'].forEach(evt => {
-        window.removeEventListener(evt, triggerSound);
-      });
     };
 
-    ['pointerdown', 'keydown', 'click', 'touchstart'].forEach(evt => {
-      window.addEventListener(evt, triggerSound, { once: true });
-    });
+    window.addEventListener('click', handleUserInteraction);
+    window.addEventListener('pointerdown', handleUserInteraction);
+    window.addEventListener('keydown', handleUserInteraction);
+    window.addEventListener('touchstart', handleUserInteraction);
 
     return () => {
       clearTimeout(timer);
-      ['pointerdown', 'keydown', 'click', 'touchstart'].forEach(evt => {
-        window.removeEventListener(evt, triggerSound);
-      });
+      window.removeEventListener('click', handleUserInteraction);
+      window.removeEventListener('pointerdown', handleUserInteraction);
+      window.removeEventListener('keydown', handleUserInteraction);
+      window.removeEventListener('touchstart', handleUserInteraction);
     };
-  }, []);
+  }, [playStartupChime]);
+
+  const handleBootFinish = () => {
+    setBooting(false);
+    playStartupChime(true);
+  };
 
   const lastOpenTimeRef = useRef<Record<string, number>>({});
 
@@ -281,7 +254,7 @@ export const OSContainer = () => {
         </div>
       )}
 
-      {booting && <BootScreen />}
+      {booting && <BootScreen onStart={handleBootFinish} />}
 
       <StartMenu />
       <Taskbar />
