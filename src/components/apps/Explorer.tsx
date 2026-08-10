@@ -20,6 +20,8 @@ export const Explorer: React.FC<{ folderId: string }> = ({ folderId }) => {
 
     if (file.type === 'folder') {
       openWindow('explorer', file.name, { props: { folderId: file.id }, icon: file.icon });
+    } else if (file.name.endsWith('.txt')) {
+      openWindow('notepad', file.name, { props: { content: file.content }, icon: file.icon });
     } else {
       openWindow('browser', file.name, { props: { url: file.content, type: file.type }, icon: file.icon });
     }

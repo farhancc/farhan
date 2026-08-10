@@ -106,7 +106,15 @@ export const OSContainer = () => {
                 ? 'bg-[#316ac5]/60 ring-1 ring-blue-300/50'
                 : 'hover:bg-white/10'
             }`}
-            onClick={(e) => { e.stopPropagation(); setSelectedIcon(icon.id); setIconContextMenu(null); }}
+            onClick={(e) => { 
+              e.stopPropagation(); 
+              if (selectedIcon === icon.id) {
+                handleIconDoubleClick(icon.id);
+              } else {
+                setSelectedIcon(icon.id); 
+                setIconContextMenu(null); 
+              }
+            }}
             onDoubleClick={() => handleIconDoubleClick(icon.id)}
             onContextMenu={(e) => handleIconContextMenu(e, icon.id)}
           >
