@@ -256,7 +256,7 @@ export const fileSystem: Record<string, FileItem> = {
   // ── Projects — FLAT (no nested folders) ──────────────────────────────────────
   projects: {
     id: 'projects', name: 'Projects', type: 'folder', icon: icons.folder,
-    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github'],
+    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'petscolony-live', 'petscolony-github'],
   },
   'spa-erp-live': {
     id: 'spa-erp-live', name: 'Careva Spa ERP — Live.lnk', type: 'project',
@@ -273,6 +273,14 @@ export const fileSystem: Record<string, FileItem> = {
   'idexo-github': {
     id: 'idexo-github', name: 'Student ID Card System — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/student-idcard-system', openBehavior: 'external', icon: icons.github,
+  },
+  'petscolony-live': {
+    id: 'petscolony-live', name: 'Pets Colony — Live.lnk', type: 'project',
+    content: 'https://www.petscolony.in/', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'petscolony-github': {
+    id: 'petscolony-github', name: 'Pets Colony — GitHub.lnk', type: 'shortcut',
+    content: 'https://github.com/farhancc/keralapetsandplants', openBehavior: 'external', icon: icons.github,
   },
 
   // ── Text Files ───────────────────────────────────────────────────────────────
