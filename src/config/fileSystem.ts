@@ -499,7 +499,7 @@ export const fileSystem: Record<string, FileItem> = {
   // ── CV Download ──────────────────────────────────────────────────────────────
   'cv-download': {
     id: 'cv-download', name: 'Download CV.lnk', type: 'shortcut',
-    content: 'CV_DOWNLOAD', openBehavior: 'external', icon: icons.cvDownload,
+    content: '/Farhan%20cc%20Next%20js%20Developer.pdf', openBehavior: 'external', icon: icons.cvDownload,
   },
 
   // ── External Shortcuts ───────────────────────────────────────────────────────

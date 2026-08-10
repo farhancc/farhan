@@ -50,6 +50,20 @@ export const Explorer: React.FC<{ folderId: string }> = ({ folderId: initialFold
     const file = fileSystem[fileId];
     if (!file) return;
 
+    // Special handling for CV download
+    if (file.content === 'CV_DOWNLOAD' || fileId === 'cv-download' || file.content?.includes('.pdf')) {
+      const pdfPath = (file.content && file.content !== 'CV_DOWNLOAD') ? file.content : '/Farhan%20cc%20Next%20js%20Developer.pdf';
+      const a = document.createElement('a');
+      a.href = pdfPath;
+      a.download = 'Farhan cc Next js Developer.pdf';
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      return;
+    }
+
     if (file.openBehavior === 'external' && file.content) {
       window.open(file.content, '_blank', 'noopener,noreferrer');
       return;
