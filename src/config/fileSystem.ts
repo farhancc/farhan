@@ -256,7 +256,7 @@ export const fileSystem: Record<string, FileItem> = {
   // ── Projects — FLAT (no nested folders) ──────────────────────────────────────
   projects: {
     id: 'projects', name: 'Projects', type: 'folder', icon: icons.folder,
-    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'xp-github', 'xp-live', 'sales-github', 'sales-live', 'reel-github', 'reel-live', 'blog-github', 'blog-live'],
+    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github'],
   },
   'spa-erp-live': {
     id: 'spa-erp-live', name: 'Careva Spa ERP — Live.lnk', type: 'project',
@@ -273,38 +273,6 @@ export const fileSystem: Record<string, FileItem> = {
   'idexo-github': {
     id: 'idexo-github', name: 'Student ID Card System — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/student-idcard-system', openBehavior: 'external', icon: icons.github,
-  },
-  'xp-github': {
-    id: 'xp-github', name: 'XP Portfolio — GitHub.lnk', type: 'shortcut',
-    content: ME.github, openBehavior: 'external', icon: icons.github,
-  },
-  'xp-live': {
-    id: 'xp-live', name: 'XP Portfolio — Live.lnk', type: 'shortcut',
-    content: ME.website, openBehavior: 'external', icon: icons.liveLink,
-  },
-  'sales-github': {
-    id: 'sales-github', name: 'Sales Copilot — GitHub.lnk', type: 'shortcut',
-    content: ME.github, openBehavior: 'external', icon: icons.github,
-  },
-  'sales-live': {
-    id: 'sales-live', name: 'Sales Copilot — Live.lnk', type: 'shortcut',
-    content: 'https://vercel.com', openBehavior: 'external', icon: icons.liveLink,
-  },
-  'reel-github': {
-    id: 'reel-github', name: 'ReelPost — GitHub.lnk', type: 'shortcut',
-    content: ME.github, openBehavior: 'external', icon: icons.github,
-  },
-  'reel-live': {
-    id: 'reel-live', name: 'ReelPost — Live.lnk', type: 'shortcut',
-    content: 'https://vercel.com', openBehavior: 'external', icon: icons.liveLink,
-  },
-  'blog-github': {
-    id: 'blog-github', name: 'Dev Blog — GitHub.lnk', type: 'shortcut',
-    content: ME.github, openBehavior: 'external', icon: icons.github,
-  },
-  'blog-live': {
-    id: 'blog-live', name: 'Dev Blog — Read.lnk', type: 'shortcut',
-    content: 'https://dev.to', openBehavior: 'external', icon: icons.liveLink,
   },
 
   // ── Text Files ───────────────────────────────────────────────────────────────
