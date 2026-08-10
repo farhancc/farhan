@@ -256,7 +256,7 @@ export const fileSystem: Record<string, FileItem> = {
   // ── Projects — FLAT (no nested folders) ──────────────────────────────────────
   projects: {
     id: 'projects', name: 'Projects', type: 'folder', icon: icons.folder,
-    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'petscolony-live', 'petscolony-github', 'nikahroots-live', 'nikahroots-github', 'lms-live', 'lms-github'],
+    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'petscolony-live', 'petscolony-github', 'nikahroots-live', 'nikahroots-github', 'lms-live', 'lms-github', 'kiyano-live', 'kiyano-github'],
   },
   'spa-erp-live': {
     id: 'spa-erp-live', name: 'Careva Spa ERP — Live.lnk', type: 'project',
@@ -297,6 +297,14 @@ export const fileSystem: Record<string, FileItem> = {
   'lms-github': {
     id: 'lms-github', name: 'LMS App — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/LMS-app', openBehavior: 'external', icon: icons.github,
+  },
+  'kiyano-live': {
+    id: 'kiyano-live', name: 'Kiyano Ice Cream — Live.lnk', type: 'project',
+    content: 'https://kiyanoicecream.com/', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'kiyano-github': {
+    id: 'kiyano-github', name: 'Kiyano Ice Cream — GitHub.lnk', type: 'shortcut',
+    content: 'https://github.com/farhancc/ICECREAMCOMPANYLANDING-', openBehavior: 'external', icon: icons.github,
   },
 
   // ── Text Files ───────────────────────────────────────────────────────────────
