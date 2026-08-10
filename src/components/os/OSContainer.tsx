@@ -23,20 +23,71 @@ export const OSContainer = () => {
   const playStartupChime = useCallback((force = false) => {
     if (soundPlayedRef.current && !force) return;
 
+    let played = false;
+
+    // 1. Web Audio API Synthesizer (Instant, 100% reliable, rich triangle + sine warm chime)
+    try {
+      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+      if (AudioContextClass) {
+        const ctx = new AudioContextClass();
+        if (ctx.state === 'suspended') {
+          ctx.resume();
+        }
+        const now = ctx.currentTime;
+
+        // Rich Warm Windows XP / 11 Chime Chord (C5 -> E5 -> G5 -> C6)
+        const notes = [
+          { freq: 523.25, time: 0.00, duration: 1.6, gain: 0.35 },
+          { freq: 659.25, time: 0.14, duration: 1.6, gain: 0.35 },
+          { freq: 783.99, time: 0.28, duration: 1.8, gain: 0.35 },
+          { freq: 1046.50, time: 0.42, duration: 2.3, gain: 0.45 },
+        ];
+
+        notes.forEach((n) => {
+          // Primary triangle harmonic (rich audible sound on laptop/mobile speakers)
+          const osc1 = ctx.createOscillator();
+          const gain1 = ctx.createGain();
+          osc1.type = 'triangle';
+          osc1.frequency.setValueAtTime(n.freq, now + n.time);
+          gain1.gain.setValueAtTime(0.001, now + n.time);
+          gain1.gain.linearRampToValueAtTime(n.gain, now + n.time + 0.04);
+          gain1.gain.exponentialRampToValueAtTime(0.0001, now + n.time + n.duration);
+          osc1.connect(gain1);
+          gain1.connect(ctx.destination);
+          osc1.start(now + n.time);
+          osc1.stop(now + n.time + n.duration);
+
+          // Sub sine warmth
+          const osc2 = ctx.createOscillator();
+          const gain2 = ctx.createGain();
+          osc2.type = 'sine';
+          osc2.frequency.setValueAtTime(n.freq, now + n.time);
+          gain2.gain.setValueAtTime(0.001, now + n.time);
+          gain2.gain.linearRampToValueAtTime(n.gain * 0.6, now + n.time + 0.04);
+          gain2.gain.exponentialRampToValueAtTime(0.0001, now + n.time + n.duration);
+          osc2.connect(gain2);
+          gain2.connect(ctx.destination);
+          osc2.start(now + n.time);
+          osc2.stop(now + n.time + n.duration);
+        });
+
+        played = true;
+      }
+    } catch (e) {
+      console.warn('Web Audio synth notice:', e);
+    }
+
+    // 2. HTML5 Audio fallback
     try {
       const audio = new Audio('/startup.wav');
       audio.volume = 0.9;
+      audio.play().then(() => {
+        played = true;
+      }).catch(() => {});
+    } catch (e) {}
 
-      const p = audio.play();
-      if (p !== undefined) {
-        p.then(() => {
-          soundPlayedRef.current = true;
-        }).catch(() => {
-          soundPlayedRef.current = false;
-        });
-      }
-    } catch (e) {
-      soundPlayedRef.current = false;
+    if (played) {
+      soundPlayedRef.current = true;
     }
   }, []);
 
