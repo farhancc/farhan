@@ -42,15 +42,17 @@ export const OSContainer = () => {
     if (!file) return;
 
     // Special: CV download
-    if (file.content === 'CV_DOWNLOAD') {
+    if (file.content === 'CV_DOWNLOAD' || fileId === 'cv-download') {
+      const pdfPath = '/Farhan%20cc%20Next%20js%20Developer.pdf';
       const a = document.createElement('a');
-      a.href = 'https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID';
-      a.download = 'Farhan_CV.pdf';
+      a.href = pdfPath;
+      a.download = 'Farhan cc Next js Developer.pdf';
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+      window.open(pdfPath, '_blank', 'noopener,noreferrer');
       return;
     }
 

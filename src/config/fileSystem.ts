@@ -33,7 +33,7 @@ const ME = {
   leetcode: 'https://leetcode.com/farhancc',
   website:  'https://github.com/farhancc',
   phone:    '+91 9961157999',
-  cvUrl:    'https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID',
+  cvUrl:    '/Farhan%20cc%20Next%20js%20Developer.pdf',
 };
 
 const RESUME_CONTENT = `
