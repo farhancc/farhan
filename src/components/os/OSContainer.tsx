@@ -19,24 +19,52 @@ export const OSContainer = () => {
   const [selectedIcon, setSelectedIcon] = useState<string | null>(null);
   const [booting, setBooting] = useState(true);
   const soundPlayedRef = useRef(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const audio = new Audio('/windows-xp-startup.mp3');
+    audio.preload = 'auto';
+    audio.volume = 1.0;
+    audioRef.current = audio;
+  }, []);
 
   const playStartupChime = useCallback((force = false) => {
     if (soundPlayedRef.current && !force) return;
 
-    try {
-      const audio = new Audio('/windows-xp-startup.mp3');
-      audio.volume = 1.0;
-      const p = audio.play();
-      
-      if (p !== undefined) {
-        p.then(() => {
-          soundPlayedRef.current = true;
-        }).catch(() => {
-          soundPlayedRef.current = false;
-        });
-      }
-    } catch (e) {
-      soundPlayedRef.current = false;
+    if (!audioRef.current) {
+      audioRef.current = new Audio('/windows-xp-startup.mp3');
+      audioRef.current.volume = 1.0;
+    }
+
+    const audio = audioRef.current;
+    audio.currentTime = 0;
+    const promise = audio.play();
+
+    if (promise !== undefined) {
+      promise.then(() => {
+        soundPlayedRef.current = true;
+      }).catch((err) => {
+        console.warn('HTML5 Audio play deferred until interaction:', err);
+        // Fallback: Web Audio API decoding
+        try {
+          const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+          if (AudioCtx) {
+            const ctx = new AudioCtx();
+            if (ctx.state === 'suspended') ctx.resume();
+            fetch('/windows-xp-startup.mp3')
+              .then((res) => res.arrayBuffer())
+              .then((buf) => ctx.decodeAudioData(buf))
+              .then((decodedBuffer) => {
+                const source = ctx.createBufferSource();
+                source.buffer = decodedBuffer;
+                source.connect(ctx.destination);
+                source.start(0);
+                soundPlayedRef.current = true;
+              })
+              .catch(() => {});
+          }
+        } catch (e) {}
+      });
     }
   }, []);
 
