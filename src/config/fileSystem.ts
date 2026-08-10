@@ -256,7 +256,7 @@ export const fileSystem: Record<string, FileItem> = {
   // ── Projects — FLAT (no nested folders) ──────────────────────────────────────
   projects: {
     id: 'projects', name: 'Projects', type: 'folder', icon: icons.folder,
-    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'petscolony-live', 'petscolony-github'],
+    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'petscolony-live', 'petscolony-github', 'nikahroots-live', 'nikahroots-github'],
   },
   'spa-erp-live': {
     id: 'spa-erp-live', name: 'Careva Spa ERP — Live.lnk', type: 'project',
@@ -281,6 +281,14 @@ export const fileSystem: Record<string, FileItem> = {
   'petscolony-github': {
     id: 'petscolony-github', name: 'Pets Colony — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/keralapetsandplants', openBehavior: 'external', icon: icons.github,
+  },
+  'nikahroots-live': {
+    id: 'nikahroots-live', name: 'NikahRoots — Live.lnk', type: 'project',
+    content: 'https://vercel.com/farhanccs-projects/nikahroots', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'nikahroots-github': {
+    id: 'nikahroots-github', name: 'NikahRoots Matchmaking — GitHub.lnk', type: 'shortcut',
+    content: 'https://github.com/farhancc/MatchMaking', openBehavior: 'external', icon: icons.github,
   },
 
   // ── Text Files ───────────────────────────────────────────────────────────────
