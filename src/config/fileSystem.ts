@@ -256,7 +256,15 @@ export const fileSystem: Record<string, FileItem> = {
   // ── Projects — FLAT (no nested folders) ──────────────────────────────────────
   projects: {
     id: 'projects', name: 'Projects', type: 'folder', icon: icons.folder,
-    children: ['xp-github', 'xp-live', 'sales-github', 'sales-live', 'reel-github', 'reel-live', 'blog-github', 'blog-live'],
+    children: ['spa-erp-live', 'spa-erp-github', 'xp-github', 'xp-live', 'sales-github', 'sales-live', 'reel-github', 'reel-live', 'blog-github', 'blog-live'],
+  },
+  'spa-erp-live': {
+    id: 'spa-erp-live', name: 'Careva Spa ERP — Live.lnk', type: 'project',
+    content: 'https://spa-erp-gamma.vercel.app/', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'spa-erp-github': {
+    id: 'spa-erp-github', name: 'Careva Spa ERP — GitHub.lnk', type: 'shortcut',
+    content: 'https://github.com/farhancc/spa-erp', openBehavior: 'external', icon: icons.github,
   },
   'xp-github': {
     id: 'xp-github', name: 'XP Portfolio — GitHub.lnk', type: 'shortcut',

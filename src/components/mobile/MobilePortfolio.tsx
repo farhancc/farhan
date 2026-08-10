@@ -8,7 +8,7 @@ import { fileSystem } from '@/config/fileSystem';
 export const MobilePortfolio = () => {
   // Extract custom projects from the virtual filesystem.
   const projects = Object.values(fileSystem)
-    .filter(f => f.type === 'project' && f.content && !f.content.includes('vercel.com'))
+    .filter(f => f.type === 'project' && f.content)
     .slice(0, 4);
 
   const skills = ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Zustand', 'Node.js', 'System Architecture'];
