@@ -71,9 +71,11 @@ export const OSContainer = () => {
   useEffect(() => {
     (window as any).playStartupSound = () => playStartupChime(true);
 
+    // Play startup audio IMMEDIATELY on screen start
+    playStartupChime(true);
+
     const timer = setTimeout(() => {
       setBooting(false);
-      playStartupChime(true);
     }, 2500);
 
     return () => {
