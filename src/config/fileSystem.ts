@@ -29,10 +29,10 @@ const ME = {
   location: 'Kerala, India',
   email:    'farhancc123@gmail.com',
   github:   'https://github.com/farhancc',
-  linkedin: 'https://linkedin.com/in/farhancc',
+  linkedin: 'https://www.linkedin.com/in/farhan-cc',
   leetcode: 'https://leetcode.com/farhancc',
   website:  'https://github.com/farhancc',
-  phone:    '',
+  phone:    '+91 9961157999',
   cvUrl:    'https://drive.google.com/uc?export=download&id=YOUR_GOOGLE_DRIVE_FILE_ID',
 };
 
@@ -43,8 +43,9 @@ const RESUME_CONTENT = `
   ╚══════════════════════════════════════╝
 
   📧  farhancc123@gmail.com
+  📞  +91 9961157999
   🐙  github.com/farhancc
-  💼  linkedin.com/in/farhancc
+  💼  linkedin.com/in/farhan-cc
 
   ──────────────────────────────────────
   SUMMARY
@@ -123,8 +124,9 @@ const CONTACT_CONTENT = `
   ╚══════════════════════════════════════╝
 
   📧  farhancc123@gmail.com
+  📞  +91 9961157999
   🐙  github.com/farhancc
-  💼  linkedin.com/in/farhancc
+  💼  linkedin.com/in/farhan-cc
 
   ──────────────────────────────────────
   OPEN TO
