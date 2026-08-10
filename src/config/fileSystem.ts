@@ -230,7 +230,7 @@ export const fileSystem: Record<string, FileItem> = {
   },
   'nikahroots-live': {
     id: 'nikahroots-live', name: 'NikahRoots — Live.lnk', type: 'project',
-    content: 'https://vercel.com/farhanccs-projects/nikahroots', openBehavior: 'external', icon: icons.liveLink,
+    content: 'https://www.nikahroots.in/en/home', openBehavior: 'external', icon: icons.liveLink,
   },
   'nikahroots-github': {
     id: 'nikahroots-github', name: 'NikahRoots Matchmaking — GitHub.lnk', type: 'shortcut',
