@@ -171,7 +171,7 @@ export const StartMenu = () => {
                 <button 
                   className="w-full flex items-center p-1.5 rounded hover:bg-[#2F71CD] hover:text-white group transition-colors cursor-pointer" 
                   onClick={() => { 
-                    openWindow('browser', 'Sales Intelligence SaaS', { props: { url: 'https://salesintel-frontend.zbeanztech.com/login', type: 'project' } }); 
+                    openWindow('browser', 'Internet Explorer', { props: { url: 'https://www.wikipedia.org' } }); 
                     closeStartMenu(); 
                   }}
                 >
@@ -180,7 +180,7 @@ export const StartMenu = () => {
                   </div>
                   <div className="text-left leading-tight">
                     <div className="font-bold text-[12px] text-[#222] group-hover:text-white">Internet</div>
-                    <div className="text-[10px] text-gray-500 group-hover:text-blue-100">Live SaaS Platform</div>
+                    <div className="text-[10px] text-gray-500 group-hover:text-blue-100">Internet Explorer</div>
                   </div>
                 </button>
 
