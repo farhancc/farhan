@@ -22,40 +22,54 @@ export const OSContainer = () => {
 
   const playStartupChime = () => {
     if (soundPlayedRef.current) return;
-    try {
-      const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
-      
-      // Zero-delay harmonic Windows XP / 11 startup chime chord
-      const notes = [
-        { freq: 523.25, delay: 0.00, dur: 1.4 }, // C5
-        { freq: 659.25, delay: 0.12, dur: 1.4 }, // E5
-        { freq: 783.99, delay: 0.24, dur: 1.6 }, // G5
-        { freq: 1046.50, delay: 0.36, dur: 2.2 }, // C6
-      ];
 
-      notes.forEach(({ freq, delay, dur }) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
+    // Method 1: HTML5 Audio using local synthesized /startup.wav
+    const audio = new Audio('/startup.wav');
+    audio.volume = 0.85;
 
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + delay);
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        soundPlayedRef.current = true;
+      }).catch(() => {
+        // Method 2: Fallback to Web Audio API Synthesizer
+        try {
+          const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+          if (!AudioCtx) return;
+          const ctx = new AudioCtx();
+          if (ctx.state === 'suspended') {
+            ctx.resume();
+          }
 
-        gain.gain.setValueAtTime(0.0001, ctx.currentTime + delay);
-        gain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + delay + 0.04);
-        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + delay + dur);
+          const notes = [
+            { freq: 523.25, delay: 0.00, dur: 1.4 },
+            { freq: 659.25, delay: 0.12, dur: 1.4 },
+            { freq: 783.99, delay: 0.24, dur: 1.6 },
+            { freq: 1046.50, delay: 0.36, dur: 2.2 },
+          ];
 
-        osc.connect(gain);
-        gain.connect(ctx.destination);
+          notes.forEach(({ freq, delay, dur }) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
 
-        osc.start(ctx.currentTime + delay);
-        osc.stop(ctx.currentTime + delay + dur);
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime + delay);
+
+            gain.gain.setValueAtTime(0.0001, ctx.currentTime + delay);
+            gain.gain.linearRampToValueAtTime(0.25, ctx.currentTime + delay + 0.04);
+            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + delay + dur);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start(ctx.currentTime + delay);
+            osc.stop(ctx.currentTime + delay + dur);
+          });
+          soundPlayedRef.current = true;
+        } catch (e) {
+          console.warn('Audio play notice', e);
+        }
       });
-
-      soundPlayedRef.current = true;
-    } catch (e) {
-      console.warn('Audio play notice', e);
     }
   };
 
