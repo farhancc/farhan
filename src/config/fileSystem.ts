@@ -256,7 +256,7 @@ export const fileSystem: Record<string, FileItem> = {
   // ── Projects — FLAT (no nested folders) ──────────────────────────────────────
   projects: {
     id: 'projects', name: 'Projects', type: 'folder', icon: icons.folder,
-    children: ['spa-erp-live', 'spa-erp-github', 'xp-github', 'xp-live', 'sales-github', 'sales-live', 'reel-github', 'reel-live', 'blog-github', 'blog-live'],
+    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'xp-github', 'xp-live', 'sales-github', 'sales-live', 'reel-github', 'reel-live', 'blog-github', 'blog-live'],
   },
   'spa-erp-live': {
     id: 'spa-erp-live', name: 'Careva Spa ERP — Live.lnk', type: 'project',
@@ -265,6 +265,14 @@ export const fileSystem: Record<string, FileItem> = {
   'spa-erp-github': {
     id: 'spa-erp-github', name: 'Careva Spa ERP — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/spa-erp', openBehavior: 'external', icon: icons.github,
+  },
+  'idexo-live': {
+    id: 'idexo-live', name: 'IDexo Cards — Live.lnk', type: 'project',
+    content: 'https://idexocards.vercel.app/', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'idexo-github': {
+    id: 'idexo-github', name: 'Student ID Card System — GitHub.lnk', type: 'shortcut',
+    content: 'https://github.com/farhancc/student-idcard-system', openBehavior: 'external', icon: icons.github,
   },
   'xp-github': {
     id: 'xp-github', name: 'XP Portfolio — GitHub.lnk', type: 'shortcut',
