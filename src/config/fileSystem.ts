@@ -256,7 +256,17 @@ export const fileSystem: Record<string, FileItem> = {
   // ── Projects — FLAT (no nested folders) ──────────────────────────────────────
   projects: {
     id: 'projects', name: 'Projects', type: 'folder', icon: icons.folder,
-    children: ['spa-erp-live', 'spa-erp-github', 'idexo-live', 'idexo-github', 'petscolony-live', 'petscolony-github', 'nikahroots-live', 'nikahroots-github', 'lms-live', 'lms-github', 'kiyano-live', 'kiyano-github'],
+    children: [
+      'spa-erp-live', 'spa-erp-github', 
+      'idexo-live', 'idexo-github', 
+      'petscolony-live', 'petscolony-github', 
+      'nikahroots-live', 'nikahroots-github', 
+      'lms-live', 'lms-github', 
+      'kiyano-live', 'kiyano-github',
+      'sedeer-live',
+      'salesintel-live',
+      'olorental-live',
+    ],
   },
   'spa-erp-live': {
     id: 'spa-erp-live', name: 'Careva Spa ERP — Live.lnk', type: 'project',
@@ -305,6 +315,18 @@ export const fileSystem: Record<string, FileItem> = {
   'kiyano-github': {
     id: 'kiyano-github', name: 'Kiyano Ice Cream — GitHub.lnk', type: 'shortcut',
     content: 'https://github.com/farhancc/ICECREAMCOMPANYLANDING-', openBehavior: 'external', icon: icons.github,
+  },
+  'sedeer-live': {
+    id: 'sedeer-live', name: 'Sedeer Portal — Live.lnk', type: 'project',
+    content: 'http://portal.sedeer.com/', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'salesintel-live': {
+    id: 'salesintel-live', name: 'Sales Intelligence — Live.lnk', type: 'project',
+    content: 'https://salesintel-frontend.zbeanztech.com/login', openBehavior: 'external', icon: icons.liveLink,
+  },
+  'olorental-live': {
+    id: 'olorental-live', name: 'Olo Rental — Live.lnk', type: 'project',
+    content: 'https://olorental.com/', openBehavior: 'external', icon: icons.liveLink,
   },
 
   // ── Text Files ───────────────────────────────────────────────────────────────
