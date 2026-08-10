@@ -71,16 +71,13 @@ export const OSContainer = () => {
   useEffect(() => {
     (window as any).playStartupSound = () => playStartupChime(true);
 
-    playStartupChime();
-
-    const handleUserMouseMove = () => {
-      playStartupChime();
-    };
-
-    window.addEventListener('mousemove', handleUserMouseMove);
+    const timer = setTimeout(() => {
+      setBooting(false);
+      playStartupChime(true);
+    }, 2500);
 
     return () => {
-      window.removeEventListener('mousemove', handleUserMouseMove);
+      clearTimeout(timer);
     };
   }, [playStartupChime]);
 
